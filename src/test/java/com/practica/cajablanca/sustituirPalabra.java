@@ -51,26 +51,26 @@ public class sustituirPalabra {
         System.out.println(this.editor.getLinea(1).toString()); //borrar esta linea luego
     }
 
-    @Test
-    public void test4() throws EmptyCollectionException {
-        this.editor.leerFichero("src/test/ficheros/sustituirPalabra/fich4");
-        this.editor.sustituirPalabra("coche","camion");
+            @Test
+        public void test4() throws EmptyCollectionException {
+            this.editor.leerFichero("src/test/ficheros/sustituirPalabra/fich4");
+            this.editor.sustituirPalabra("coche","camion");
+            assertEquals(this.editor.getLinea(1).toString(), "[]");
+            assertEquals(this.editor.getLinea(2).toString(), "[]");
 
-        //Comprueba
+            System.out.println(this.editor.getLinea(1).toString());
+            System.out.println(this.editor.getLinea(2).toString());
+        }
 
-        //borrar luego
-        System.out.println(this.editor.getLinea(1).toString());
-        System.out.println(this.editor.getLinea(2).toString());
-    }
+        @Test
+        public void test5() throws EmptyCollectionException {
+            this.editor.leerFichero("src/test/ficheros/sustituirPalabra/fich5");
 
-    @Test
-    public void test5() throws EmptyCollectionException {
-        this.editor.leerFichero("src/test/ficheros/sustituirPalabra/fich5");
-        this.editor.sustituirPalabra("coche","camion");
-
-        //Comprueba
-
-        //borrar luego
-        System.out.println(this.editor.getLinea(1).toString());
-    }
+            this.editor.sustituirPalabra("coche","camion");
+// Esta prueba lo hacemos para comprobar si en nuestro editor tenemos una palabra que no es coche entonces no puede sustituir
+            // y se devuelve la palabra que estaba en el editor.
+            //Comprueba si el contenido de la primera posicion de editor es igual a [bicicleta]
+            assertEquals(this.editor.getLinea(1).toString(), "[bicicleta]");
+            System.out.println(this.editor.getLinea(1).toString());
+        }
 }
