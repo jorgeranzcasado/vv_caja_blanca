@@ -1,26 +1,24 @@
 package com.practica.cajablanca;
-
 import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Assertions;
-import java.io.File;
-
-import org.junit.jupiter.api.Test;
 
 import com.cajanegra.EmptyCollectionException;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-class mayorLongitud {
-
-	@Test
-	void test1()  throws EmptyCollectionException{
-		Editor editor = new Editor();
-		//File archivo = new File ("C:\\Users\\bp0198\\Documents\\fichero.txt");
-		Assertions.assertNull(editor.mayorLongitud());
-	}
-	@Test
-	void test2()  throws EmptyCollectionException{
-		Editor editor = new Editor();
-		editor.leerFichero("src/main/java/com/practica/cajablanca/prueba.txt");
-		Assertions.assertEquals(editor.mayorLongitud(), "H");
-	}
-
+public class mayorlongitudTest {
+    private Editor editor;
+    @BeforeEach
+    public void setUp(){
+        this.editor = new Editor();
+    }
+    @Test
+    void test1camino(){
+        assertNull(editor.mayorLongitud());
+    }
+    @Test
+    void test2camino() throws EmptyCollectionException {
+        editor.leerFichero("src/test/FicherosMayorLong/Texto2");
+        assertEquals(editor.mayorLongitud(), "Pablito");
+        System.out.println(editor.getLinea(1));
+    }
 }
