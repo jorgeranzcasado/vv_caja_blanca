@@ -17,7 +17,7 @@ public class mayorlongitudTest {
     }
     @Test
     void test2camino() throws EmptyCollectionException {
-        editor.leerFichero("src/test/FicherosMayorLong/Texto2");
+        editor.leerFichero("src/test/ficheros/FicherosMayorLong/Texto2");
         assertEquals(editor.mayorLongitud(), "Pablito");
     }
 }
