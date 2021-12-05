@@ -1,0 +1,53 @@
+package com.practica.cajablanca;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import com.cajanegra.SingleLinkedListImpl;
+import org.junit.jupiter.api.Assertions;
+import java.io.File;
+
+import org.junit.jupiter.api.Test;
+
+import com.cajanegra.EmptyCollectionException;
+public class numPalabrasTest {
+    private SingleLinkedListImpl<String> editor;
+
+    //Test para el camino 1: inicio no puede ser igual o menor que cero
+    @Test
+    public void test1 (){
+        Editor editor = new Editor();
+        assertThrows(IllegalArgumentException.class, () -> {editor.numPalabras(0, 1, "hola");});
+    }
+
+    //Test para el camino 2: fin no puede ser mayor que el tamaño de editor
+    @Test
+    public void test2 (){
+        Editor editor = new Editor();
+        assertThrows(IllegalArgumentException.class, () -> {editor.numPalabras(1, 1, "hola");});
+    }
+
+    //Test para el camino 3: tamaño de editor igual a cero
+    @Test
+    public void test3 (){
+        Editor editor = new Editor();
+        assertEquals(0, editor.numPalabras(1, 0, "hola"));
+    }
+
+    //Test para el camino 4: tamaño de editor mayor que 0 e inicio = fin
+    @Test
+    public void test4 (){
+        Editor editor = new Editor();
+        editor.leerFichero("src/main/java/com/practica/cajablanca/prueba.txt");
+        assertEquals(0, editor.numPalabras(1,1, "hola"));
+    }
+
+    //Test para el camino 5: tamaño de editor mayor que 0, inicio menor que fin, pos mayor que tamaño lista
+    @Test
+    public void test5 (){
+        Editor editor = new Editor();
+        editor.leerFichero("src/main/java/com/practica/cajablanca/prueba.txt");
+        assertEquals(0, editor.numPalabras(3,4, "hola"));
+    }
+
+    @Test
+}
