@@ -12,7 +12,7 @@ import com.cajanegra.EmptyCollectionException;
 public class numPalabrasTest {
     private SingleLinkedListImpl<String> editor;
 
-    //Test para el camino 1: inicio no puede ser igual o menor que cero
+    //Test para el camino 1: inicio menor o igual que cero
     @Test
     public void test1 (){
         Editor editor = new Editor();
@@ -42,12 +42,22 @@ public class numPalabrasTest {
     }
 
     //Test para el camino 5: tamaño de editor mayor que 0, inicio menor que fin, pos mayor que tamaño lista
+    //Camino 5 no valido
+    //Test para el camino 6: tamaño de editor mayor que 0, inicio menor que fin, pos menor o igual
+    //que tamaño lista, fin - inicio = 1, editor.getAtPos(inicio) != palabra
     @Test
-    public void test5 (){
+    public void test5y6 (){
         Editor editor = new Editor();
         editor.leerFichero("src/main/java/com/practica/cajablanca/prueba.txt");
-        assertEquals(0, editor.numPalabras(3,4, "hola"));
+        assertEquals(0, editor.numPalabras(1,2, "coche"));
     }
 
+    //Test para el camino 7: tamaño de editor mayor que 0, inicio menor que fin, pos menor o igual
+    //que tamaño lista, editor.getAtPos(inicio) == palabra
     @Test
+    public void test7 (){
+        Editor editor = new Editor();
+        editor.leerFichero("src/main/java/com/practica/cajablanca/prueba.txt");
+        assertEquals(1, editor.numPalabras(1,2, "coche"));
+    }
 }
