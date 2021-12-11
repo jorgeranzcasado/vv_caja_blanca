@@ -9,7 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import com.cajanegra.EmptyCollectionException;
 
-public class sustituirPalabra {
+public class sustituirPalabraTest {
     private Editor editor;
     private AbstractSingleLinkedListImpl<String> lista;
 
